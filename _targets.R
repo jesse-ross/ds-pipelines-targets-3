@@ -60,13 +60,13 @@ list(
 
   # combine the per-state tallies
   tar_combine(obs_tallies,
-              mapped_by_state_targets[[3]],
+              mapped_by_state_targets$site_tallies,
               command = combine_obs_tallies(!!!.x)),
 
   # save hashes of per-state tallies
   tar_combine(
     summary_state_timeseries_csv,
-    mapped_by_state_targets[[4]],
+    mapped_by_state_targets$plot_sites_png,
     command = summarize_targets('3_visualize/log/summary_state_timeseries.csv', !!!.x),
     format="file"
   ),
