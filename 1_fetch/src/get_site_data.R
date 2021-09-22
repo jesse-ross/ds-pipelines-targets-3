@@ -1,6 +1,7 @@
 # download data for each site
 # packages needed: tidyverse, dataRetrieval
-get_site_data <- function(site_info, state, parameter) {
+get_site_data <- function(site_info, state, parameter) retry (
+  when = "Ugh, the internet data transfer failed! Try again", {
   message(sprintf('  Retrieving data for %s-%s', state, state))
 
   # simulate an unreliable web service or internet connection by causing random failures
@@ -41,4 +42,4 @@ get_site_data <- function(site_info, state, parameter) {
     select(State, Site, Date, Value, Quality, Parameter)
 
   return(site_data_final)
-}
+})

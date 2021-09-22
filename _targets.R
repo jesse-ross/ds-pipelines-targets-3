@@ -10,6 +10,7 @@ tar_option_set(packages = c("cowplot",
                             "leaflet",
                             "leafpop",
                             "lubridate",
+                            "retry",
                             "rnaturalearth",
                             "tidyverse",
                             "urbnmapr")
@@ -26,7 +27,12 @@ source("3_visualize/src/plot_site_data.R")
 source("3_visualize/src/plot_data_coverage.R")
 
 # Configuration
-states <- c('WI', 'MN', 'MI', 'IL', 'IN', 'CA')
+states <- c('AL', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FL', 'GA', 'ID',
+            'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN',
+            'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND',
+            'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT',
+            'VA', 'WA', 'WV', 'WI', 'WY', 'AK', 'HI', 'GU', 'PR')
+
 parameter <- c('00060')
 
 # Targets
