@@ -15,6 +15,7 @@ tar_option_set(packages = c("cowplot",
 source("1_fetch/src/find_oldest_sites.R")
 source("1_fetch/src/get_site_data.R")
 source("2_process/src/tally_site_obs.R")
+source("2_process/src/summarize_targets.R")
 source("3_visualize/src/map_sites.R")
 source("3_visualize/src/plot_site_data.R")
 source("3_visualize/src/plot_data_coverage.R")
@@ -56,6 +57,14 @@ list(
   tar_combine(obs_tallies,
               mapped_by_state_targets[[3]],
               command = combine_obs_tallies(!!!.x)),
+
+  # save hashes of per-state tallies
+  tar_combine(
+    summary_state_timeseries_csv,
+    mapped_by_state_targets[[4]],
+    command = summarize_targets('3_visualize/log/summary_state_timeseries.csv', !!!.x),
+    format="file"
+  ),
 
   # visualize the per-state coverage
   tar_target(
