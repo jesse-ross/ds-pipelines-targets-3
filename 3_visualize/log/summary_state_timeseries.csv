@@ -1,0 +1,7 @@
+tar_name,filepath,hash
+plot_sites_png_WI,3_visualize/out/timeseries_WI.png,5f183bb082d7c3bc
+plot_sites_png_MN,3_visualize/out/timeseries_MN.png,8c4163142a8976e0
+plot_sites_png_MI,3_visualize/out/timeseries_MI.png,7dc7b50e5ad3fa55
+plot_sites_png_IL,3_visualize/out/timeseries_IL.png,8e6fc3e664fee8ca
+plot_sites_png_IN,3_visualize/out/timeseries_IN.png,08d6c099e031d8ad
+plot_sites_png_CA,3_visualize/out/timeseries_CA.png,9c85f629fe460da9
