@@ -1,6 +1,7 @@
 # download data for each site
 # packages needed: tidyverse, dataRetrieval
-get_site_data <- function(site_info, state, parameter) retry (
+get_site_data <- function(site_info, state, parameter, dummy) retry (
+  dummy
   when = "Ugh, the internet data transfer failed! Try again", {
   message(sprintf('  Retrieving data for %s-%s', state, state))
 

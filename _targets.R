@@ -30,15 +30,16 @@ source("3_visualize/src/plot_data_coverage.R")
 states <- c('AL', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FL', 'GA', 'ID',
             'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN',
             'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND',
-            'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT',
-            'VA', 'WA', 'WV', 'WI', 'WY', 'AK', 'HI', 'GU', 'PR')
+            'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT',
+            'VA', 'WA', 'WV', 'WI', 'WY', 'AK', 'HI', 'PR')
 
-parameter <- c('00060')
+parameter <- c('00010')
+dummy <- '2021-09-23'
 
 # Targets
 list(
   # Identify oldest sites
-  tar_target(oldest_active_sites, find_oldest_sites(states, parameter)),
+  tar_target(oldest_active_sites, find_oldest_sites(states, parameter, dummy)),
 
   tar_target(
     nwis_inventory,
@@ -52,7 +53,8 @@ list(
     nwis_data,
     get_site_data(site_info = nwis_inventory,
                   state = nwis_inventory$state_cd,
-                  parameter = parameter),
+                  parameter = parameter,
+                  dummy = dummy),
     pattern = map(nwis_inventory)
   ),
 
