@@ -50,9 +50,12 @@ list(
 
   tar_target(
     nwis_data,
-    get_site_data(site_info = nwis_inventory,
-                  state = nwis_inventory$state_cd,
-                  parameter = parameter),
+    retry(
+      get_site_data(site_info = nwis_inventory,
+                    state = nwis_inventory$state_cd,
+                    parameter = parameter),
+      when = 'Ugh, the internet data transfer failed! Try again.',
+      max_tries = 30),
     pattern = map(nwis_inventory)
   ),
 
